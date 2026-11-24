@@ -1,0 +1,225 @@
+{
+  "schema_version": "keychronicle-bundle/1",
+  "threshold": 2,
+  "issued_at": "2026-01-10T00:00:00Z",
+  "keys": [
+    {
+      "key_id": "alice-key",
+      "issuer_id": "alice",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-alice-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "bob-key",
+      "issuer_id": "bob",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-bob-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "carol-key",
+      "issuer_id": "carol",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-carol-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "dave-key",
+      "issuer_id": "dave",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-dave-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "issuer-a-key",
+      "issuer_id": "issuer-a",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-issuer-a-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "issuer-b-key",
+      "issuer_id": "issuer-b",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-issuer-b-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    }
+  ],
+  "approvals": [
+    {
+      "id": "RING_A",
+      "issued_at": "2026-01-10T00:00:00Z",
+      "payload": {
+        "document": "RING_A",
+        "classification": "internal"
+      },
+      "requires": [
+        "RING_B"
+      ]
+    },
+    {
+      "id": "RING_B",
+      "issued_at": "2026-01-10T00:00:00Z",
+      "payload": {
+        "document": "RING_B",
+        "classification": "internal"
+      },
+      "requires": [
+        "RING_C"
+      ]
+    },
+    {
+      "id": "RING_C",
+      "issued_at": "2026-01-10T00:00:00Z",
+      "payload": {
+        "document": "RING_C",
+        "classification": "internal"
+      },
+      "requires": [
+        "RING_A"
+      ]
+    },
+    {
+      "id": "LOCK_X",
+      "issued_at": "2026-01-10T00:00:00Z",
+      "payload": {
+        "document": "LOCK_X",
+        "classification": "internal"
+      },
+      "requires": [
+        "LOCK_Y"
+      ]
+    },
+    {
+      "id": "LOCK_Y",
+      "issued_at": "2026-01-10T00:00:00Z",
+      "payload": {
+        "document": "LOCK_Y",
+        "classification": "internal"
+      },
+      "requires": [
+        "LOCK_X"
+      ]
+    }
+  ],
+  "signatures": [
+    {
+      "id": "sig-RING_A-alice",
+      "approval_id": "RING_A",
+      "issuer_id": "alice",
+      "key_id": "alice-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "85562ba6742a4b1f813b49503ee8b4fa257ca8b649505bc43439e862f6263ed2"
+    },
+    {
+      "id": "sig-RING_A-bob",
+      "approval_id": "RING_A",
+      "issuer_id": "bob",
+      "key_id": "bob-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "9d134ad8103df0e854d7bb4e0259d7289da3095cbf3439d09e25387f1cf03708"
+    },
+    {
+      "id": "sig-RING_B-alice",
+      "approval_id": "RING_B",
+      "issuer_id": "alice",
+      "key_id": "alice-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "7defdec2e2cf40e118295fd31d39df01dab2ab0f4cb950d4721b51b8f5cbeb78"
+    },
+    {
+      "id": "sig-RING_B-carol",
+      "approval_id": "RING_B",
+      "issuer_id": "carol",
+      "key_id": "carol-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "0f54681c95067a56c82e9b7f9db7c4e7165ea4d8cf20bd0bbad598886765ce11"
+    },
+    {
+      "id": "sig-RING_C-bob",
+      "approval_id": "RING_C",
+      "issuer_id": "bob",
+      "key_id": "bob-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "e62b60da62fe7f3b30497a8e3f473fda2217f29816d9db1493808a9f11518767"
+    },
+    {
+      "id": "sig-RING_C-carol",
+      "approval_id": "RING_C",
+      "issuer_id": "carol",
+      "key_id": "carol-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "c35afb085d43bb4f7dfbe03a5698bd73ae98a05a8d777b13c13e889561bbb00b"
+    },
+    {
+      "id": "sig-LOCK_X-alice",
+      "approval_id": "LOCK_X",
+      "issuer_id": "alice",
+      "key_id": "alice-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "b8d6dfd12097eb5bf3cd5c8a9a89d464c24ffe3f9016640546c5156632c5fb5e"
+    },
+    {
+      "id": "sig-LOCK_X-bob",
+      "approval_id": "LOCK_X",
+      "issuer_id": "bob",
+      "key_id": "bob-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "280213db52f966c4643deed974833141bb825a06df14592919958386755e5469"
+    },
+    {
+      "id": "sig-LOCK_Y-carol",
+      "approval_id": "LOCK_Y",
+      "issuer_id": "carol",
+      "key_id": "carol-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "ab519c4f2ed039bd67d479558a985890a6e9a05c690ca3193200066314c8508b"
+    },
+    {
+      "id": "sig-LOCK_Y-dave",
+      "approval_id": "LOCK_Y",
+      "issuer_id": "dave",
+      "key_id": "dave-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "27ba1baa55cc16f3c0770370ea967ff6c60c08d0af23fa1465179fc66e809e5f"
+    }
+  ],
+  "quarantines": [],
+  "clearances": [],
+  "revocations": [],
+  "checkpoints": [
+    {
+      "id": "cp-lock-x-frozen",
+      "approval_id": "LOCK_X",
+      "decision": "trusted",
+      "frozen_at": "2026-01-12T00:00:00Z",
+      "published_at": "2026-01-12T00:00:00Z",
+      "witness": {
+        "source": "independent-review-board",
+        "independent_issuer_count": 2,
+        "signature_ids": [
+          "sig-LOCK_X-alice",
+          "sig-LOCK_X-bob"
+        ]
+      },
+      "digest": "sha256:2a665126d6d7d6e8e7acaf0a272eadb3d4e8239f468c117e6ef7d141833856fb"
+    }
+  ]
+}

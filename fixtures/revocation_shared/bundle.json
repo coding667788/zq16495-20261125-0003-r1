@@ -1,0 +1,280 @@
+{
+  "schema_version": "keychronicle-bundle/1",
+  "threshold": 2,
+  "issued_at": "2026-01-10T00:00:00Z",
+  "keys": [
+    {
+      "key_id": "alice-key",
+      "issuer_id": "alice",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-alice-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "bob-key",
+      "issuer_id": "bob",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-bob-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "carol-key",
+      "issuer_id": "carol",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-carol-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "dave-key",
+      "issuer_id": "dave",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-dave-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "issuer-a-key",
+      "issuer_id": "issuer-a",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-issuer-a-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "issuer-b-key",
+      "issuer_id": "issuer-b",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-issuer-b-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    }
+  ],
+  "approvals": [
+    {
+      "id": "ROOT",
+      "issued_at": "2026-01-10T00:00:00Z",
+      "payload": {
+        "document": "ROOT",
+        "classification": "internal"
+      },
+      "terminal": false
+    },
+    {
+      "id": "SHARED",
+      "issued_at": "2026-01-10T00:00:00Z",
+      "payload": {
+        "document": "SHARED",
+        "classification": "internal"
+      },
+      "requires": [
+        "ROOT"
+      ],
+      "terminal": false
+    },
+    {
+      "id": "SHORT",
+      "issued_at": "2026-01-10T00:00:00Z",
+      "payload": {
+        "document": "SHORT",
+        "classification": "internal"
+      },
+      "requires": [
+        "SHARED"
+      ],
+      "terminal": false
+    },
+    {
+      "id": "LONG_1",
+      "issued_at": "2026-01-10T00:00:00Z",
+      "payload": {
+        "document": "LONG_1",
+        "classification": "internal"
+      },
+      "requires": [
+        "SHARED"
+      ],
+      "terminal": false
+    },
+    {
+      "id": "LONG_2",
+      "issued_at": "2026-01-10T00:00:00Z",
+      "payload": {
+        "document": "LONG_2",
+        "classification": "internal"
+      },
+      "requires": [
+        "LONG_1"
+      ],
+      "terminal": false
+    },
+    {
+      "id": "TERMINAL_DIRECT",
+      "issued_at": "2026-01-10T00:00:00Z",
+      "payload": {
+        "document": "TERMINAL_DIRECT",
+        "classification": "internal"
+      },
+      "requires": [
+        "SHARED"
+      ],
+      "terminal": true
+    },
+    {
+      "id": "TERMINAL_MULTI",
+      "issued_at": "2026-01-10T00:00:00Z",
+      "payload": {
+        "document": "TERMINAL_MULTI",
+        "classification": "internal"
+      },
+      "requires": [
+        "SHORT",
+        "LONG_2"
+      ],
+      "terminal": true
+    }
+  ],
+  "signatures": [
+    {
+      "id": "sig-ROOT-issuer-a",
+      "approval_id": "ROOT",
+      "issuer_id": "issuer-a",
+      "key_id": "issuer-a-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "f86b1029be36c189c5ce59ead797cdad42c880ebe68d57134c9e36ce5041c30d"
+    },
+    {
+      "id": "sig-ROOT-issuer-b",
+      "approval_id": "ROOT",
+      "issuer_id": "issuer-b",
+      "key_id": "issuer-b-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "531c4ee8b0df26e6b668ff74a794146ccb0247dbbd3230153cbc287d0ad198aa"
+    },
+    {
+      "id": "sig-SHARED-issuer-a",
+      "approval_id": "SHARED",
+      "issuer_id": "issuer-a",
+      "key_id": "issuer-a-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "1330b43e8f822dce3165b262d1ac5547ba81fbb2ce9e337fa776967117c1aeeb"
+    },
+    {
+      "id": "sig-SHARED-issuer-b",
+      "approval_id": "SHARED",
+      "issuer_id": "issuer-b",
+      "key_id": "issuer-b-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "ee1691548aadba4e1a44705cb94cac909afce168102d7a2cffd2e6a49e676b6d"
+    },
+    {
+      "id": "sig-SHORT-issuer-a",
+      "approval_id": "SHORT",
+      "issuer_id": "issuer-a",
+      "key_id": "issuer-a-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "5c65cfb2041035c662609e992c4bb2f2296d4865a76ed38e9a26f01cd48552eb"
+    },
+    {
+      "id": "sig-SHORT-issuer-b",
+      "approval_id": "SHORT",
+      "issuer_id": "issuer-b",
+      "key_id": "issuer-b-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "e05282297e57e6c8be6aac6a16ac2154ea70d5ea71dd63765d76e2baaec13bba"
+    },
+    {
+      "id": "sig-LONG_1-issuer-a",
+      "approval_id": "LONG_1",
+      "issuer_id": "issuer-a",
+      "key_id": "issuer-a-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "6cfd23d9b9439420b4590e5787b0f68605908f60d075d02c118f39fe158ef0fa"
+    },
+    {
+      "id": "sig-LONG_1-issuer-b",
+      "approval_id": "LONG_1",
+      "issuer_id": "issuer-b",
+      "key_id": "issuer-b-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "e795c4938139f7b63c156939f96cc394a543242ca373b43ef86e17c6da67dbcb"
+    },
+    {
+      "id": "sig-LONG_2-issuer-a",
+      "approval_id": "LONG_2",
+      "issuer_id": "issuer-a",
+      "key_id": "issuer-a-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "92ce0157e9defcd448f9c3a45a953d2b42349faabb66f4db4984b89940c42ceb"
+    },
+    {
+      "id": "sig-LONG_2-issuer-b",
+      "approval_id": "LONG_2",
+      "issuer_id": "issuer-b",
+      "key_id": "issuer-b-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "26beb08402841fe463b714e5a471a343074ef6e4b75cc601dbd00d4232dae5f1"
+    },
+    {
+      "id": "sig-TERMINAL_DIRECT-issuer-a",
+      "approval_id": "TERMINAL_DIRECT",
+      "issuer_id": "issuer-a",
+      "key_id": "issuer-a-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "084f27207932f8bb9b94db156ef53ddc106ffe221ff704e33b5421ad233dc8ab"
+    },
+    {
+      "id": "sig-TERMINAL_DIRECT-issuer-b",
+      "approval_id": "TERMINAL_DIRECT",
+      "issuer_id": "issuer-b",
+      "key_id": "issuer-b-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "7ddb0216e56a6c4acb77d8ab4de69be7be9cb9b03bf34a463f118ec961cf34ae"
+    },
+    {
+      "id": "sig-TERMINAL_MULTI-issuer-a",
+      "approval_id": "TERMINAL_MULTI",
+      "issuer_id": "issuer-a",
+      "key_id": "issuer-a-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "22c786969d027795ec17fafa399da4fe88717f5ecfe419326806d8c3afc0893c"
+    },
+    {
+      "id": "sig-TERMINAL_MULTI-issuer-b",
+      "approval_id": "TERMINAL_MULTI",
+      "issuer_id": "issuer-b",
+      "key_id": "issuer-b-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "fc5c66191ce5a3937e47202dcd4d97c309f8d6e0c8f7e57ee54639abfa730538"
+    }
+  ],
+  "quarantines": [],
+  "clearances": [],
+  "revocations": [
+    {
+      "id": "rev-root-retroactive",
+      "target_type": "approval",
+      "target_id": "ROOT",
+      "effective_at": "2025-12-15T00:00:00Z",
+      "published_at": "2026-01-25T00:00:00Z",
+      "reason": "ROOT signer key was compromised before the archived issuance"
+    }
+  ],
+  "checkpoints": []
+}

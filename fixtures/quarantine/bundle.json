@@ -1,0 +1,153 @@
+{
+  "schema_version": "keychronicle-bundle/1",
+  "threshold": 2,
+  "issued_at": "2026-01-10T00:00:00Z",
+  "keys": [
+    {
+      "key_id": "alice-key",
+      "issuer_id": "alice",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-alice-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "bob-key",
+      "issuer_id": "bob",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-bob-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "carol-key",
+      "issuer_id": "carol",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-carol-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "dave-key",
+      "issuer_id": "dave",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-dave-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "issuer-a-key",
+      "issuer_id": "issuer-a",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-issuer-a-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "issuer-b-key",
+      "issuer_id": "issuer-b",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-issuer-b-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    }
+  ],
+  "approvals": [
+    {
+      "id": "Q-CLEAR",
+      "issued_at": "2026-01-10T00:00:00Z",
+      "payload": {
+        "document": "Q-CLEAR",
+        "classification": "internal"
+      }
+    },
+    {
+      "id": "Q-CONFIRM",
+      "issued_at": "2026-01-10T00:00:00Z",
+      "payload": {
+        "document": "Q-CONFIRM",
+        "classification": "internal"
+      }
+    }
+  ],
+  "signatures": [
+    {
+      "id": "sig-Q-CLEAR-alice",
+      "approval_id": "Q-CLEAR",
+      "issuer_id": "alice",
+      "key_id": "alice-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "c1035c94f0e980b54c70223b815db393270af9f000afa4acd5f48077b073a502"
+    },
+    {
+      "id": "sig-Q-CLEAR-bob",
+      "approval_id": "Q-CLEAR",
+      "issuer_id": "bob",
+      "key_id": "bob-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "22d744eadf72f2825dcfcfa59ac305e9981f5bbfd961fb58a9e49328caaf09f2"
+    },
+    {
+      "id": "sig-Q-CONFIRM-carol",
+      "approval_id": "Q-CONFIRM",
+      "issuer_id": "carol",
+      "key_id": "carol-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "b27dfdef569fadf4d9b42a34e581538aec95a76247dd743008183452ce319cee"
+    },
+    {
+      "id": "sig-Q-CONFIRM-dave",
+      "approval_id": "Q-CONFIRM",
+      "issuer_id": "dave",
+      "key_id": "dave-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "935bfd9449fa448bee9a67916f829900f8c9b5fd827c8000ed5f8619731c3fe0"
+    }
+  ],
+  "quarantines": [
+    {
+      "id": "q-alice-jan",
+      "target_type": "signature",
+      "target_id": "sig-Q-CLEAR-alice",
+      "start_at": "2026-01-09T00:00:00Z",
+      "end_at": "2026-01-12T00:00:00Z",
+      "published_at": "2026-01-15T00:00:00Z",
+      "reason": "unexpected rotation from alice endpoint"
+    },
+    {
+      "id": "q-carol-jan",
+      "target_type": "signature",
+      "target_id": "sig-Q-CONFIRM-carol",
+      "start_at": "2026-01-09T00:00:00Z",
+      "end_at": "2026-01-12T00:00:00Z",
+      "published_at": "2026-01-16T00:00:00Z",
+      "reason": "possible key disclosure"
+    }
+  ],
+  "clearances": [
+    {
+      "id": "clear-alice",
+      "quarantine_id": "q-alice-jan",
+      "target_type": "signature",
+      "target_id": "sig-Q-CLEAR-alice",
+      "published_at": "2026-02-01T00:00:00Z",
+      "at": "2026-01-31T12:00:00Z",
+      "reason": "HSM audit proves rotation was scheduled"
+    }
+  ],
+  "revocations": [
+    {
+      "id": "rev-q-confirm-approval",
+      "target_type": "approval",
+      "target_id": "Q-CONFIRM",
+      "effective_at": "2026-01-01T00:00:00Z",
+      "published_at": "2026-02-02T00:00:00Z",
+      "reason": "key disclosure confirmed; approval backdated into compromise window"
+    }
+  ],
+  "checkpoints": []
+}

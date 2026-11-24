@@ -1,0 +1,138 @@
+{
+  "schema_version": "keychronicle-bundle/1",
+  "threshold": 2,
+  "issued_at": "2026-01-10T00:00:00Z",
+  "keys": [
+    {
+      "key_id": "alice-key",
+      "issuer_id": "alice",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-alice-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "bob-key",
+      "issuer_id": "bob",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-bob-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "carol-key",
+      "issuer_id": "carol",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-carol-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "dave-key",
+      "issuer_id": "dave",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-dave-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "issuer-a-key",
+      "issuer_id": "issuer-a",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-issuer-a-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "issuer-b-key",
+      "issuer_id": "issuer-b",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-issuer-b-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "alice-old-2024",
+      "issuer_id": "alice",
+      "secret": "rotation-old-secret-one",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2027-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "alice-old-2025",
+      "issuer_id": "alice",
+      "secret": "rotation-old-secret-two",
+      "valid_from": "2025-06-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    }
+  ],
+  "approvals": [
+    {
+      "id": "ROT-ONE-ISSUER",
+      "issued_at": "2026-01-10T00:00:00Z",
+      "payload": {
+        "document": "ROT-ONE-ISSUER",
+        "classification": "internal"
+      }
+    },
+    {
+      "id": "ROT-WITH-BOB",
+      "issued_at": "2026-01-10T00:00:00Z",
+      "payload": {
+        "document": "ROT-WITH-BOB",
+        "classification": "internal"
+      }
+    }
+  ],
+  "signatures": [
+    {
+      "id": "sig-rot-old-1",
+      "approval_id": "ROT-ONE-ISSUER",
+      "issuer_id": "alice",
+      "key_id": "alice-old-2024",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "6271b2c12f9e9d8eef5e85401e5b0acda87c80a598da5ea9b5a637de1fd6c779"
+    },
+    {
+      "id": "sig-rot-old-2",
+      "approval_id": "ROT-ONE-ISSUER",
+      "issuer_id": "alice",
+      "key_id": "alice-old-2025",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "5621aea4a9f225b876ff808125fcdec70462026495fa66405639b452cf7dcd84"
+    },
+    {
+      "id": "sig-rot-bob-old-1",
+      "approval_id": "ROT-WITH-BOB",
+      "issuer_id": "alice",
+      "key_id": "alice-old-2024",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "7e4690d5fae008223145bbe67ea790c0188df0ea656715d3c0dc9214c6e69f51"
+    },
+    {
+      "id": "sig-rot-bob-old-2",
+      "approval_id": "ROT-WITH-BOB",
+      "issuer_id": "alice",
+      "key_id": "alice-old-2025",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "41277c1498ddfd27fb25925d8cd8dff6bda65407257c6c10a3ed23bf4da837ad"
+    },
+    {
+      "id": "sig-rot-bob",
+      "approval_id": "ROT-WITH-BOB",
+      "issuer_id": "bob",
+      "key_id": "bob-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "f99e89f54566b2cf4f9ab4fc96a2a6079bdedd17ca7487ba7ce8d43dd8d44a8d"
+    }
+  ],
+  "quarantines": [],
+  "clearances": [],
+  "revocations": [],
+  "checkpoints": []
+}

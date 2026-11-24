@@ -1,0 +1,95 @@
+{
+  "schema_version": "keychronicle-bundle/1",
+  "threshold": 2,
+  "issued_at": "2026-01-10T00:00:00Z",
+  "keys": [
+    {
+      "key_id": "alice-key",
+      "issuer_id": "alice",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-alice-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "bob-key",
+      "issuer_id": "bob",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-bob-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "carol-key",
+      "issuer_id": "carol",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-carol-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "dave-key",
+      "issuer_id": "dave",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-dave-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "issuer-a-key",
+      "issuer_id": "issuer-a",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-issuer-a-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "issuer-b-key",
+      "issuer_id": "issuer-b",
+      "algorithm": "HMAC-SHA256",
+      "secret": "sample-secret-issuer-b-key",
+      "valid_from": "2024-01-01T00:00:00Z",
+      "valid_to": "2028-01-01T00:00:00Z"
+    },
+    {
+      "key_id": "manual-key",
+      "issuer_id": "manual-issuer",
+      "algorithm": "HMAC-SHA256",
+      "secret": "manual-sample-secret",
+      "valid_from": "2025-01-01T00:00:00Z",
+      "valid_to": "2027-01-01T00:00:00Z"
+    }
+  ],
+  "approvals": [
+    {
+      "id": "HM-1",
+      "issued_at": "2026-01-10T00:00:00Z",
+      "payload": {
+        "amount": 7,
+        "action": "readme-hand-calc"
+      }
+    }
+  ],
+  "signatures": [
+    {
+      "id": "sig-hm-1-manual",
+      "approval_id": "HM-1",
+      "issuer_id": "manual-issuer",
+      "key_id": "manual-key",
+      "hmac": "e429776e780d6c86bff26bfc4c6871e11efd18f24a55fb066a44e7d54c8232df"
+    },
+    {
+      "id": "sig-hm-1-bob",
+      "approval_id": "HM-1",
+      "issuer_id": "bob",
+      "key_id": "bob-key",
+      "algorithm": "HMAC-SHA256",
+      "signed_at": "2026-01-10T00:00:00Z",
+      "hmac": "683765c88c191abef8e0521ac40cca0ce51de1900d98e9ae6a5fabe5c3889219"
+    }
+  ],
+  "quarantines": [],
+  "clearances": [],
+  "revocations": [],
+  "checkpoints": []
+}
